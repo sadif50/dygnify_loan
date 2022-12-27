@@ -12,7 +12,7 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink className='btn' to='/'>Home</NavLink>
-            <NavLink className='btn' to='/allUser'>All User</NavLink>
+            <NavLink className='btn' to='/allApplications'>All Applications</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

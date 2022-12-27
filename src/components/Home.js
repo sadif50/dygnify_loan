@@ -8,6 +8,21 @@ const Home = () => {
 
     const handlePersonalDetails = data => {
         console.log(data);
+
+        fetch('http://localhost:5000/addApplication', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.acknowledged){
+                alert('User Addes Succeess');
+                reset();
+            }
+        })
     }
     return (
         <Container className='mt-5'>
