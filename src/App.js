@@ -21,7 +21,7 @@ function App() {
         },
         {
           path: '/allApplications/:id',
-          loader: ({params})=>fetch(`http://localhost:5000/applications?id=${params.id}`),
+          loader: ({params})=>fetch(`http://localhost:5000/applications/${params.id}`),
           element: <ApplicationDetails/>
         }
       ]
