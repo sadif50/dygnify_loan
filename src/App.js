@@ -1,28 +1,28 @@
-import { useState } from 'react';
-import { Container, Tab, Tabs } from 'react-bootstrap';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import AllUser from './components/AllUser';
+import Home from './components/Home';
+import Main from './Layout/Main';
 
 function App() {
-  const [key, setKey] = useState('home');
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main/>,
+      children: [
+        {
+          path: '/',
+          element: <Home/>
+        },
+        {
+          path: '/allUser',
+          element: <AllUser/>
+        }
+      ]
+    }
+  ])
   return (
-    <Container className='mt-5'>
-      <Tabs
-        id="controlled-tab-example"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-        className="mb-3"
-      >
-        <Tab eventKey="home" title="Home">
-          Hello
-        </Tab>
-        <Tab eventKey="profile" title="Profile">
-          Hello
-        </Tab>
-        <Tab eventKey="contact" title="Contact">
-          Hello
-        </Tab>
-      </Tabs>
-    </Container>
+    <RouterProvider router={router}></RouterProvider>
   );
 }
 
