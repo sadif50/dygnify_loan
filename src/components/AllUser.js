@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const AllUser = () => {
     const [applications, setApplications] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/applications')
+        fetch('https://dygnify-loan-server.vercel.app/applications')
         .then(res => res.json())
         .then(data =>{
             setApplications(data);

@@ -21,7 +21,7 @@ function App() {
         },
         {
           path: '/allApplications/:id',
-          loader: ({params})=>fetch(`http://localhost:5000/applications/${params.id}`),
+          loader: ({params})=>fetch(`https://dygnify-loan-server.vercel.app/applications/${params.id}`),
           element: <ApplicationDetails/>
         }
       ]

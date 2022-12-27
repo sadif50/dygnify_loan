@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [key, setKey] = useState('personal');
+    const navigate = useNavigate();
 
     const handlePersonalDetails = data => {
         console.log(data);
 
-        fetch('http://localhost:5000/addApplication', {
+        fetch('https://dygnify-loan-server.vercel.app/addApplication', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -19,8 +21,9 @@ const Home = () => {
         .then(res => res.json())
         .then(data =>{
             if(data.acknowledged){
-                alert('User Addes Succeess');
+                alert('Loan Application Submit Success');
                 reset();
+                navigate('/allApplications');
             }
         })
     }
